@@ -4,7 +4,7 @@ module Codebreaker
   describe Game do
     describe "#start" do
       let(:output) { double('output').as_null_object }
-      let(:game)   { Game.new(output) }
+      let(:game)   { Game.new(STDOUT) }
 
       it "sends a welcome message" do
         output.expect(:puts).with('Welcome to Codebreaker!')

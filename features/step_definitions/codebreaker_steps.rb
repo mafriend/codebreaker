@@ -16,14 +16,14 @@ Given /^I am not yet playing$/ do
 end
 
 Given /^the secret code is "([^"]*)"$/ do |secret|
-  game = Codebreaker::Game.new(output)
-  game.start('1234')
+  game = Codebreaker::Game.new(STDOUT)
+  game.start(nil)
 end
 
 When /^I start a new game$/ do
   @messenger = StringIO.new
   game = Codebreaker::Game.new(@messenger)
-  game.start('1234')
+  game.start(nil)
 end
 
 Then /^I should see "([^"]*)"$/ do |message|
