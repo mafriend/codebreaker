@@ -10,7 +10,7 @@ Feature: code-breaker submits guess
 
   Scenario Outline: submit guess
     Given the secret code is "<code>"
-    When I guess "<guess>"
+    When I put "<guess>"
     Then the mark should be "<mark>"
 
     Examples: no matches

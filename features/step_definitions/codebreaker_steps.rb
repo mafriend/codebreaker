@@ -17,16 +17,23 @@ end
 
 Given /^the secret code is "([^"]*)"$/ do |secret|
   game = Codebreaker::Game.new(STDOUT)
-  game.start(nil)
+  game.start(secret)
 end
 
 When /^I start a new game$/ do
   @messenger = StringIO.new
   game = Codebreaker::Game.new(@messenger)
-  game.start(nil)
+  game.start('1234')
+end
+
+When /^I guess "([^"]*)"$/ do |guess|
+  @game.guess(guess)
 end
 
 Then /^I should see "([^"]*)"$/ do |message|
   expect(@messenger.string.split("\n")).to include(message)
 end
 
+Then /^the mark should be "([^"]*)"$/ do |mark|
+  output.messages.should include(mark)
+end
