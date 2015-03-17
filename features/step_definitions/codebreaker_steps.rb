@@ -1,4 +1,4 @@
-require "Codebreaker"
+require "codebreaker"
 
 class Output
   def messages
@@ -33,7 +33,7 @@ Given /^the secret code is "([^"]*)"$/ do |secret|
 end
 
 When /^I guess "([^"]*)"$/ do |guess|
-  game = Codebreaker::Game(STDOUT)
+  game = Codebreaker::Game.new(STDOUT)
   game.guess(guess)
 end
 
